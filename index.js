@@ -2,11 +2,23 @@ var number = []
 var number2 = []
 
 
+function display(array) {
+    baiTap1(array)
+    baiTap2(array)
+    baiTap3(array)
+    baiTap4(array)
+    baiTap5(array)
+    baiTap8(array)
+    baiTap10(array)
+    var divResult = document.getElementById("arraySpan")
+    divResult.style.display = "inline";
+    divResult.innerHTML = `${array}`
 
+}
 function addNumber() {
     var numberAdd = +document.getElementById("getNumber").value;
     number.push(numberAdd)
-    
+    display(number)
 
     var divResult = document.getElementById("arraySpan")
     divResult.style.display = "inline";
@@ -14,7 +26,12 @@ function addNumber() {
 
 }
 
+function removeNumber() {
+    number.pop()
+    display(number)
 
+
+}
 function baiTap1(array) {
     var total = 0;
     for (var i = 0; i < array.length; i++) {
@@ -109,7 +126,7 @@ function baiTap6() {
 
     var divResult = document.getElementById("ketQua6")
     divResult.innerHTML = ` Mảng sau khi đổi: ${number}`
-    
+    display(number)
 
 }
 
@@ -117,7 +134,7 @@ function baiTap7() {
     number.sort(compare)
     var divResult = document.getElementById("ketQua7")
     divResult.innerHTML = ` Mảng sau khi sắp xếp: ${number}`
-    
+    display(number)
 }
 function compare(a, b) {
     return a - b;
